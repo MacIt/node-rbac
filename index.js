@@ -11,6 +11,7 @@ const rbac = require('./lib/rbac.js')({
         database: 'zhijie'
     },
     rbac: {
+        'user_table': 't_zhijie_user',
         'role_table': 't_zhijie_role',
         'user_role': 't_zhijie_user_role_relation',
         'permission_table': 't_zhijie_permission',
@@ -18,7 +19,7 @@ const rbac = require('./lib/rbac.js')({
     }
 });
 
-var result = rbac.hasPermission(1, 'create', '/crew/customer')
+var result = rbac.hasPermission(1, 'create', '/crew/customer/switch')
     .then(function(result) {
         if(result.length > 0) {
             console.log(true);
